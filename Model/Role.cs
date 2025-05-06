@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace AccountingForTouristTrips.Model
 {
-    public class Country
+    public class Role
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
-        public Country()
+        
+        public Role()
         {
-            Tours = new ObservableCollection<Tour>();
+            Roles = new ObservableCollection<User>();
         }
 
         //Using for DB
-        public virtual ObservableCollection<Tour> Tours { get; set;}
+        public virtual ObservableCollection<User> Roles { get; set; }
     }
 }

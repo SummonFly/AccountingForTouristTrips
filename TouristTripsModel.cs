@@ -26,6 +26,8 @@ namespace AccountingForTouristTrips
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Booking> Bookings { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
 
     }
 }

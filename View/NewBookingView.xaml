@@ -1,0 +1,60 @@
+﻿<Window x:Class="AccountingForTouristTrips.View.NewBookingView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:AccountingForTouristTrips.View"
+        xmlns:model ="clr-namespace:AccountingForTouristTrips.Model"
+        mc:Ignorable="d"
+        Title="NewBookingView" Height="350" Width="300">
+
+    <Window.Resources>
+        <ObjectDataProvider x:Key="EnumBookingStatusSource"
+                        ObjectType="{x:Type model:BookingStatys}"
+                        MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="model:BookingStatys"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Id" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+        <TextBox Text="{Binding Id}" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="40"/>
+
+        <TextBlock Text="Tour Id" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+        <TextBox Text="{Binding TourId}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>
+
+        <TextBlock Text="Client Id" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+        <TextBox Text="{Binding ClientId}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>
+
+        <TextBlock Text="Booking Date" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+        <TextBox Text="{Binding BookingDate}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>
+
+        <TextBlock Text="Number of People" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+        <TextBox Text="{Binding NumberOfPeople}" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>
+
+        <TextBlock Text="Status" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+        <ComboBox ItemsSource="{Binding Source={StaticResource EnumBookingStatusSource}}" SelectedItem="{Binding Statys}" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>
+
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="SaveBtn" Content="Save" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>
+            <Button x:Name="CancelBtn" Content="Cancel" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="10"/>
+        </StackPanel>
+    </Grid>
+</Window>
