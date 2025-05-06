@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AccountingForTouristTrips.View;
+using System.Data.Entity;
 
 namespace AccountingForTouristTrips
 {
@@ -24,6 +26,15 @@ namespace AccountingForTouristTrips
         public MainWindow()
         {
             InitializeComponent();
+
+            using (var context = new TouristTripsModel())
+            {
+                //var cl = context.Clients.Add(new Client() { FirstName = "test client" });
+                //context.Users.Add(new User() { Client = cl, PasswordHash = "123" });
+                //context.SaveChanges();
+            }
+
+            MainFrame.Navigate(new MainClientWindow());
         }
     }
 }

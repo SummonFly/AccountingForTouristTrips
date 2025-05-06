@@ -23,6 +23,7 @@ namespace AccountingForTouristTrips.Model
         }
 
         //Using for DB
+        public virtual User User { get; set; }
         public ObservableCollection<Booking> Bookings { get; set; }
     }
 }

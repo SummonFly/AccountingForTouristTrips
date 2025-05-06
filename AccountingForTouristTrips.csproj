@@ -67,8 +67,31 @@
     <Compile Include="Model\Booking.cs" />
     <Compile Include="Model\Country.cs" />
     <Compile Include="Model\Payment.cs" />
+    <Compile Include="Model\Role.cs" />
     <Compile Include="Model\Tour.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="TouristTripsModel.cs" />
+    <Compile Include="View\MainClientWindow.xaml.cs">
+      <DependentUpon>MainClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewBookingView.xaml.cs">
+      <DependentUpon>NewBookingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewClientView.xaml.cs">
+      <DependentUpon>NewClientView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewCountryView.xaml.cs">
+      <DependentUpon>NewCountryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewPaymentView.xaml.cs">
+      <DependentUpon>NewPaymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewTourView.xaml.cs">
+      <DependentUpon>NewTourView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TourView.xaml.cs">
+      <DependentUpon>TourView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -81,6 +104,34 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\MainClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NewBookingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NewClientView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NewCountryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NewPaymentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NewTourView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TourView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Client.cs" />
@@ -113,7 +164,6 @@
   <ItemGroup>
     <Folder Include="Helper\" />
     <Folder Include="ViewModel\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

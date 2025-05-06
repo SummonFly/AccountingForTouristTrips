@@ -1,0 +1,47 @@
+﻿<Window x:Class="AccountingForTouristTrips.View.NewClientView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountingForTouristTrips.View"
+        mc:Ignorable="d"
+        Title="New client" Height="450" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="16*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Id" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="6,0,0,0" Grid.Column="0" Height="16" Width="10"/>
+        <TextBox Text="{Binding Id}" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="40" Height="18"/>
+
+        <TextBlock Text="First Name" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Width="57"/>
+        <TextBox Text="{Binding FirstName}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="100" Height="18"/>
+
+        <TextBlock Text="Last Name" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" Height="16" Width="56"/>
+        <TextBox Text="{Binding LastName}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="100" Height="18"/>
+
+        <TextBlock Text="Email" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" Height="16" Width="28"/>
+        <TextBox Text="{Binding Email}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="100" Height="18"/>
+
+        <TextBlock Text="Phone" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" Height="16" Width="34"/>
+        <TextBox Text="{Binding Phone}" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="100" Height="18"/>
+
+        <TextBlock Text="Date of Birth" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" Height="16" Width="67"/>
+        <TextBox Text="{Binding DateOfBirth}" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="100" Height="18"/>
+
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="1" Margin="45,62,0,0" Grid.RowSpan="2" Width="108">
+            <Button x:Name="SaveBtn" Content="Save" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>
+            <Button x:Name="CancelBtn" Content="Cancel" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="10"/>
+        </StackPanel>
+    </Grid>
+</Window>
