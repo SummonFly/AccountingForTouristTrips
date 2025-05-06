@@ -26,14 +26,6 @@ namespace AccountingForTouristTrips
         public MainWindow()
         {
             InitializeComponent();
-
-            using (var context = new TouristTripsModel())
-            {
-                //var cl = context.Clients.Add(new Client() { FirstName = "test client" });
-                //context.Users.Add(new User() { Client = cl, PasswordHash = "123" });
-                //context.SaveChanges();
-            }
-
             MainFrame.Navigate(new MainClientWindow());
         }
     }
