@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccountingForTouristTrips.View"
         mc:Ignorable="d"
-        Title="New payment" Height="250" Width="300">
+        Title="New payment" Height="342" Width="322">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -32,8 +32,8 @@
         <DatePicker Text="{Binding PaymentDate}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>
 
         <StackPanel Grid.ColumnSpan="2" Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="SaveBtn" Content="Save" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>
-            <Button x:Name="CancelBtn" Content="Cancel" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="10"/>
+            <Button x:Name="SaveBtn" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>
+            <Button x:Name="CancelBtn" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="10"/>
         </StackPanel>
     </Grid>
 </Window>

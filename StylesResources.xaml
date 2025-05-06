@@ -60,7 +60,7 @@
                             CornerRadius="4"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                        <ContentPresenter x:Name="content" 
+                        <ContentPresenter x:Name="content"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         Margin="{TemplateBinding Padding}"/>
