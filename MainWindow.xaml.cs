@@ -29,7 +29,8 @@ namespace AccountingForTouristTrips
             //Login();
 
             //MainFrame.Navigate(new MainClientWindow());
-            MainFrame.Navigate(new RoleView());
+            //MainFrame.Navigate(new RoleView());
+            MainFrame.Navigate(new CountryView());
             //MainFrame.Navigate(new TestingPage());
 
         }

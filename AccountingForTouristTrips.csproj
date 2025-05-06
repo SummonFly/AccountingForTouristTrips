@@ -81,9 +81,13 @@
     <Compile Include="Model\Tour.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="TouristTripsModel.cs" />
+    <Compile Include="ViewModel\CountryViewModel.cs" />
     <Compile Include="ViewModel\RoleViewModel.cs" />
     <Compile Include="View\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CountryView.xaml.cs">
+      <DependentUpon>CountryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainClientWindow.xaml.cs">
       <DependentUpon>MainClientWindow.xaml</DependentUpon>
@@ -132,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AuthorizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CountryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

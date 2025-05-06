@@ -19,5 +19,6 @@ namespace AccountingForTouristTrips
         public static User LoginUser { get; set; }
 
         public static RoleViewModel RoleViewModel = new RoleViewModel();
+        public static CountryViewModel CountryViewModel = new CountryViewModel();
     }
 }
