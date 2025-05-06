@@ -1,4 +1,6 @@
 ﻿using AccountingForTouristTrips.Model;
+using AccountingForTouristTrips.View;
+using AccountingForTouristTrips.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -15,5 +17,7 @@ namespace AccountingForTouristTrips
     public partial class App : Application
     {
         public static User LoginUser { get; set; }
+
+        public static RoleViewModel RoleViewModel = new RoleViewModel();
     }
 }

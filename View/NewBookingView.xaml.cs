@@ -24,5 +24,10 @@ namespace AccountingForTouristTrips.View
         {
             InitializeComponent();
         }
+
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
     }
 }

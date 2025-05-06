@@ -53,8 +53,8 @@
         <ComboBox ItemsSource="{Binding Source={StaticResource EnumBookingStatusSource}}" SelectedItem="{Binding Statys}" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>
 
         <StackPanel Grid.ColumnSpan="2" Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="SaveBtn" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>
-            <Button x:Name="CancelBtn" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="10"/>
+            <Button x:Name="SaveBtn" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Click="SaveBtn_Click"/>
+            <Button x:Name="CancelBtn" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="10" IsCancel="True"/>
         </StackPanel>
     </Grid>
 </Window>

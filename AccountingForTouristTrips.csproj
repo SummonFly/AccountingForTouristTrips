@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helper\RelayCommand.cs" />
     <Compile Include="Helper\UsersHelper.cs" />
     <Compile Include="Migrations\202505060820260_AddUserAndRoleTables.cs" />
     <Compile Include="Migrations\202505060820260_AddUserAndRoleTables.designer.cs">
@@ -80,6 +81,7 @@
     <Compile Include="Model\Tour.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="TouristTripsModel.cs" />
+    <Compile Include="ViewModel\RoleViewModel.cs" />
     <Compile Include="View\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
     </Compile>
@@ -98,8 +100,14 @@
     <Compile Include="View\NewPaymentView.xaml.cs">
       <DependentUpon>NewPaymentView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\NewRoleView.xaml.cs">
+      <DependentUpon>NewRoleView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\NewTourView.xaml.cs">
       <DependentUpon>NewTourView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RoleView.xaml.cs">
+      <DependentUpon>RoleView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TestingPage.xaml.cs">
       <DependentUpon>TestingPage.xaml</DependentUpon>
@@ -147,7 +155,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\NewRoleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\NewTourView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RoleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,9 +207,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
