@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccountingForTouristTrips.View"
         mc:Ignorable="d"
-        Height="450" Width="800" Background="Black">
-    <Grid Background="#FFFF8888">
+        Height="450" Width="800" Background="Black" Title="Client">
+    <Grid Background="White">
         
     </Grid>
 </Page>

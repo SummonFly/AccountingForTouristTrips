@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:AccountingForTouristTrips"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="/StylesResources.xaml"/>
     </Application.Resources>
 </Application>
