@@ -26,7 +26,18 @@ namespace AccountingForTouristTrips
         public MainWindow()
         {
             InitializeComponent();
+            //Login();
+
             MainFrame.Navigate(new MainClientWindow());
+        }
+
+        public void Login()
+        {
+            AuthorizationWindow authorization = new AuthorizationWindow();
+            if(authorization.ShowDialog() == false) 
+                this.Close();
+            else
+                App.LoginUser = authorization.User;
         }
     }
 }

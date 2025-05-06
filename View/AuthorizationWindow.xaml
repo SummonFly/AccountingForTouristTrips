@@ -1,0 +1,76 @@
+﻿<Window x:Class="AccountingForTouristTrips.View.AuthorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountingForTouristTrips.View"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="450" Width="500 ">
+    <Window.Resources>
+        <Style TargetType="TextBox" >
+            <Setter Property="Background" Value="#FFF5F5F5"/>
+            <Setter Property="BorderBrush" Value="#FFCCCCCC"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Margin" Value="0,5,0,10"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Height" Value="40"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#FF4285F4"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Height" Value="45"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF3367D6"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FF333333"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#FFF9F9F9">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="#FF4285F4" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="542"/>
+
+        <Border Grid.Column="1" Width="350" Margin="20" Background="White" CornerRadius="4" BorderThickness="1" BorderBrush="#FFEEEEEE" Padding="30">
+            <StackPanel>
+                <TextBlock Text="Roaming Spirit" 
+               FontSize="24" 
+               FontWeight="Bold"
+               Margin="0,0,0,10"
+               HorizontalAlignment="Center" FontFamily="Castellar"/>
+
+                <TextBlock Text="Добро пожаловать" 
+               FontSize="14" 
+               FontWeight="Bold"
+               Margin="0,0,0,20"
+               HorizontalAlignment="Center"/>
+
+                <TextBlock Text="Введите логин"/>
+                <TextBox x:Name="LoginTextBox" />
+
+                <TextBlock Text="Введите пароль"/>
+                <TextBox x:Name="PasswordTextBox"/>
+
+                <Button x:Name="LoginButton" Content="Войти" Click="LoginButton_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

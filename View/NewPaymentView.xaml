@@ -29,7 +29,7 @@
         <TextBox Text="{Binding Amount}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>
 
         <TextBlock Text="Payment Date" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-        <TextBox Text="{Binding PaymentDate}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>
+        <DatePicker Text="{Binding PaymentDate}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>
 
         <StackPanel Grid.ColumnSpan="2" Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="SaveBtn" Content="Save" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>

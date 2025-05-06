@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helper\UsersHelper.cs" />
     <Compile Include="Migrations\202505060820260_AddUserAndRoleTables.cs" />
     <Compile Include="Migrations\202505060820260_AddUserAndRoleTables.designer.cs">
       <DependentUpon>202505060820260_AddUserAndRoleTables.cs</DependentUpon>
@@ -79,6 +80,9 @@
     <Compile Include="Model\Tour.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="TouristTripsModel.cs" />
+    <Compile Include="View\AuthorizationWindow.xaml.cs">
+      <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainClientWindow.xaml.cs">
       <DependentUpon>MainClientWindow.xaml</DependentUpon>
     </Compile>
@@ -97,6 +101,9 @@
     <Compile Include="View\NewTourView.xaml.cs">
       <DependentUpon>NewTourView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TestingPage.xaml.cs">
+      <DependentUpon>TestingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TourView.xaml.cs">
       <DependentUpon>TourView.xaml</DependentUpon>
     </Compile>
@@ -112,6 +119,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AuthorizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainClientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\NewTourView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TestingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,7 +188,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Helper\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
