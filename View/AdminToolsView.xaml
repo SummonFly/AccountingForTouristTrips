@@ -26,11 +26,21 @@
                 <Button x:Name="ShowClientViewBtn" Margin="5" Content="Client View" Click="ShowClientViewBtn_Click"/>
                 <Button x:Name="ShowUserViewBtn" Margin="5" Content="User View" Click="ShowUserViewBtn_Click"/>
                 <Button x:Name="ShowRoleViewBtn" Margin="5" Content="Role View" Click="ShowRoleViewBtn_Click"/>
-                <Button x:Name="ShowCountryViewBtn" Margin="5" Content="Country View" Click="ShowCountryViewBtn_Click"/>
+                <Button x:Name="ShowCountryViewBtn" Margin="5" Content="Country View" Click="ShowCountryViewBtn_Click" IsEnabled="False"/>
                 <Button x:Name="ShowTourViewBtn" Margin="5" Content="Tour View" Click="ShowTourViewBtn_Click"/>
-                <Button x:Name="ShowBookingViewBtn" Margin="5" Content="Tour View"/>
-                <Button x:Name="ShowPaymentViewBtn" Margin="5" Content="Tour View"/>
+                <Button x:Name="ShowBookingViewBtn" Margin="5" Content="Booking View" Click="ShowBookingViewBtn_Click" IsEnabled="False"/>
+                <Button x:Name="ShowPaymentViewBtn" Margin="5" Content="Payment View" IsEnabled="False"/>
             </StackPanel>
         </ScrollViewer>
+        <WrapPanel Grid.Column="2" Grid.Row="1">
+            <GroupBox Header="Перезагрузка ViewModel" Background="{DynamicResource BorderColor}">
+                <StackPanel>
+                    <CheckBox x:Name="ClientCheck" Content="Client"/>
+                    <CheckBox x:Name="UserCheck" Content="User"/>
+                    <CheckBox x:Name="RoleCheck" Content="Role"/>
+                    <Button Margin="5" Content="Перезагрузить данные" x:Name="ReloadViewModelBtn" Click="ReloadViewModelBtn_Click"/>
+                </StackPanel>
+            </GroupBox>
+        </WrapPanel>
     </Grid>
 </Page>

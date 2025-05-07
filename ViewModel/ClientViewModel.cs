@@ -43,7 +43,7 @@ namespace AccountingForTouristTrips.ViewModel
             {
                 if (context.Clients != null)
                 {
-                    var query = from client in context.Clients
+                    var query = from client in context.Clients.Include("User")
                                 orderby client.FirstName
                                 select client;
                     if (query.Count() != 0)
@@ -177,6 +177,7 @@ namespace AccountingForTouristTrips.ViewModel
                     using (var context = new TouristTripsModel())
                     {
                         Client delClient = context.Clients.Find(client.Id);
+                        User delUser = delClient.User;
                         if (delClient != null)
                         {
                             MessageBoxResult result = MessageBox.Show("Удалить данные по клиенту: " 
@@ -186,8 +187,10 @@ namespace AccountingForTouristTrips.ViewModel
                             {
                                 try
                                 {
+                                    if( delUser != null ) context.Users.Remove(delUser);
                                     context.Clients.Remove(delClient);
                                     context.SaveChanges();
+                                    App.UserViewModel.ListUsers.Remove(delUser);
                                     ListClient.Remove(client);
                                 }
                                 catch (Exception ex)

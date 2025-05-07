@@ -54,5 +54,19 @@ namespace AccountingForTouristTrips.View
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri(@"View\TourView.xaml", UriKind.RelativeOrAbsolute));
         }
+
+        private void ShowBookingViewBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService nav = NavigationService.GetNavigationService(this);
+            nav.Navigate(new Uri(@"View\BookingView.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void ReloadViewModelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(ClientCheck.IsChecked == true) App.ClientViewModel = new ViewModel.ClientViewModel();
+            if(UserCheck.IsChecked == true) App.UserViewModel = new ViewModel.UserViewModel();
+            if(RoleCheck.IsChecked == true) App.RoleViewModel = new ViewModel.RoleViewModel();
+        }
+
     }
 }
