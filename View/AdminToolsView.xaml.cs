@@ -46,7 +46,7 @@ namespace AccountingForTouristTrips.View
         private void ShowCountryViewBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri(@"View\ContryView.xaml", UriKind.RelativeOrAbsolute));
+            nav.Navigate(new Uri(@"View\CountryView.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void ShowTourViewBtn_Click(object sender, RoutedEventArgs e)
@@ -66,7 +66,19 @@ namespace AccountingForTouristTrips.View
             if(ClientCheck.IsChecked == true) App.ClientViewModel = new ViewModel.ClientViewModel();
             if(UserCheck.IsChecked == true) App.UserViewModel = new ViewModel.UserViewModel();
             if(RoleCheck.IsChecked == true) App.RoleViewModel = new ViewModel.RoleViewModel();
+            if(CountryCheck.IsChecked == true) App.CountryViewModel = new ViewModel.CountryViewModel();
+            if(TourCheck.IsChecked == true) App.TourViewModel = new ViewModel.TourViewModel();
+            if(BookingCheck.IsChecked == true) App.BookingViewModel = new ViewModel.BookingViewModel();
         }
 
+        private void ShowAuthorizationWindow_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new AuthorizationWindow();
+            if(window.ShowDialog() == true)
+            {
+                var user = window.User;
+                MessageBox.Show($"Success\nВы: {user.Client.FirstName} {user.Client.LastName}\n Роль: {user.Role.Name}");
+            }
+        }
     }
 }

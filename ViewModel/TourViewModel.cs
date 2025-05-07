@@ -104,6 +104,9 @@ namespace AccountingForTouristTrips.ViewModel
                         {
                             try
                             {
+                                var  existingCountry = context.Countries.Find(newTour.Country.Id);
+                                newTour.Country = existingCountry;
+
                                 context.Tours.Add(newTour);
                                 context.SaveChanges();
                                 ListTour.Clear();

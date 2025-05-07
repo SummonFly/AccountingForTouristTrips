@@ -38,10 +38,10 @@
         <TextBox Text="{Binding Id}" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="40"/>
 
         <TextBlock Text="Tour" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-        <TextBox Text="{Binding Tour.Name}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="200"/>
+        <ComboBox x:Name="cbTour" SelectedItem="{Binding Tour}" DisplayMemberPath="Name" SelectedValue="{Binding TourId}" SelectedValuePath="Id" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="200" SelectedIndex="0"/>
 
         <TextBlock Text="Client" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-        <TextBox Text="{Binding Client.FirstName}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="200"/>
+        <ComboBox x:Name="cbClient" SelectedItem="{Binding Client}" DisplayMemberPath="FirstName" SelectedValue="{Binding ClientId}" SelectedValuePath="Id" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="200" SelectedIndex="0"/>
 
         <TextBlock Text="Booking Date" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
         <DatePicker Text="{Binding BookingDate}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="200"/>
@@ -50,7 +50,7 @@
         <TextBox Text="{Binding NumberOfPeople}" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>
 
         <TextBlock Text="Status" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-        <ComboBox ItemsSource="{Binding Source={StaticResource EnumBookingStatusSource}}" SelectedItem="{Binding Statys}" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>
+        <ComboBox x:Name="cbStatus" ItemsSource="{Binding Source={StaticResource EnumBookingStatusSource}}" SelectedItem="{Binding Statys}" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100" SelectedIndex="0"/>
 
         <StackPanel Grid.ColumnSpan="2" Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="SaveBtn" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Click="SaveBtn_Click"/>
