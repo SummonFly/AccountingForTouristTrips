@@ -28,7 +28,10 @@ namespace AccountingForTouristTrips
             InitializeComponent();
             //Login();
 
-            MainFrame.Navigate(new MainClientWindow());
+            //MainFrame.Navigate(new MainClientWindow());
+            
+            MainFrame.Navigate(new AdminToolsView());
+
         }
 
         public void Login()

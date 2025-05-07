@@ -41,31 +41,31 @@ namespace AccountingForTouristTrips.View
 
             if (string.IsNullOrEmpty(LoginTextBox.Text))
             {
-                SelectField(LoginTextBox, Brushes.Red);
+                SelectField(LoginTextBox, Brushes.MediumVioletRed);
                 return;
             }
             if (string.IsNullOrEmpty(PasswordTextBox.Text))
             {
-                SelectField(PasswordTextBox, Brushes.Red);
+                SelectField(PasswordTextBox, Brushes.MediumVioletRed);
                 return;
             }
 
             User user = await FindUserByLogin(LoginTextBox.Text);
             if (user == null)
             {
-                SelectField(LoginTextBox, Brushes.Red);
+                SelectField(LoginTextBox, Brushes.MediumVioletRed);
                 return;
             }
 
-            if(PasswordTextBox.Text == user.PasswordHash)
+            if(HashPassword(PasswordTextBox.Text) == user.PasswordHash)
             {
-                _user = user;
+                _user = App.UserViewModel.ListUsers.First(u => u.ClientId == user.ClientId);
                 DialogResult = true; 
                 return;
             }
             else
             {
-                SelectField(LoginTextBox, Brushes.Red);
+                SelectField(PasswordTextBox, Brushes.MediumVioletRed);
                 return;
             }
         }
@@ -80,12 +80,12 @@ namespace AccountingForTouristTrips.View
         {
             using (var context = new TouristTripsModel())
             {
+                context.Users.Load();
                 return await context.Users.FirstOrDefaultAsync(u => u.Login == login);
             }
         }
 
-        //TODO add registration
-        private static string HashPassword(string password)
+        public static string HashPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())
             {

@@ -1,0 +1,49 @@
+﻿<Window x:Class="AccountingForTouristTrips.View.NewUserView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountingForTouristTrips.View"
+        xmlns:helper="clr-namespace:AccountingForTouristTrips.Helper"
+        mc:Ignorable="d"
+        Title="NewUserView" Height="370" Width="276">
+    
+    <Window.Resources>
+        <helper:PasswordToHashConverter x:Key="passwordConverter"/>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="129*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Client" HorizontalAlignment="Right" VerticalAlignment="Center"  Grid.Column="0" Height="16"/>
+        <ComboBox x:Name="cbClient" SelectedItem="{Binding Client}" SelectedValue="{Binding ClientId}" SelectedValuePath="Id" DisplayMemberPath="FirstName" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="164" Height="45"/>
+        
+        <TextBlock Text="Login" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Height="16"/>
+        <TextBox Text="{Binding Login}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="164"/>
+
+        <TextBlock Text="Password" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16"/>
+        <TextBox x:Name="PasswordBox" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="164"/>
+
+        <TextBlock Text="Hash" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16"/>
+        <TextBox x:Name="PasswordHashBox" Text="{Binding Text, ElementName=PasswordBox, Converter={StaticResource passwordConverter}}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="164" IsEnabled="False"/>
+
+        <TextBlock Text="Role" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Height="18"/>
+        <ComboBox x:Name="cbRole" SelectedItem="{Binding Role}" SelectedValue="{Binding RoleId}" SelectedValuePath="Id" DisplayMemberPath="Name" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="164" Height="45"/>
+
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="1">
+            <Button x:Name="SaveBtn" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Click="SaveBtn_Click"/>
+            <Button x:Name="CancelBtn" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="10" IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</Window>
