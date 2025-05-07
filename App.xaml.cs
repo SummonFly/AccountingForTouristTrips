@@ -24,5 +24,6 @@ namespace AccountingForTouristTrips
         public static UserViewModel UserViewModel = new UserViewModel();
         public static TourViewModel TourViewModel = new TourViewModel();
         public static BookingViewModel BookingViewModel = new BookingViewModel();
+        public static PaymentViewModel PaymentViewModel = new PaymentViewModel();
     }
 }

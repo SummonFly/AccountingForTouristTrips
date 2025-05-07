@@ -85,6 +85,7 @@
     <Compile Include="ViewModel\BookingViewModel.cs" />
     <Compile Include="ViewModel\ClientViewModel.cs" />
     <Compile Include="ViewModel\CountryViewModel.cs" />
+    <Compile Include="ViewModel\PaymentViewModel.cs" />
     <Compile Include="ViewModel\RoleViewModel.cs" />
     <Compile Include="ViewModel\TourViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
@@ -126,6 +127,9 @@
     </Compile>
     <Compile Include="View\NewUserView.xaml.cs">
       <DependentUpon>NewUserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PaymentView.xaml.cs">
+      <DependentUpon>PaymentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RoleView.xaml.cs">
       <DependentUpon>RoleView.xaml</DependentUpon>
@@ -204,6 +208,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\NewUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PaymentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

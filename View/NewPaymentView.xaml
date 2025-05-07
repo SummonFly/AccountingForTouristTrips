@@ -22,8 +22,20 @@
         <TextBlock Text="Id" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
         <TextBox Text="{Binding Id}" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="40"/>
 
-        <TextBlock Text="Booking Id" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-        <TextBox Text="{Binding BookingId}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>
+        <TextBlock Text="Booking" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+        <ComboBox x:Name="cbBooking" SelectedItem="{Binding Booking}" SelectedValue="{Binding BookingId}" SelectedValuePath="Id" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Tour.Name}"/>
+                        <Separator Margin="10,0,10,0"/>
+                        <TextBlock Text="{Binding Client.FirstName}"/>
+                        <Separator Margin="10,0,10,0"/>
+                        <TextBlock Text="{Binding Client.LastName}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
         <TextBlock Text="Amount" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
         <TextBox Text="{Binding Amount}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>

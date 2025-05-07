@@ -61,14 +61,10 @@ namespace AccountingForTouristTrips.View
             nav.Navigate(new Uri(@"View\BookingView.xaml", UriKind.RelativeOrAbsolute));
         }
 
-        private void ReloadViewModelBtn_Click(object sender, RoutedEventArgs e)
+        private void ShowPaymentViewBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(ClientCheck.IsChecked == true) App.ClientViewModel = new ViewModel.ClientViewModel();
-            if(UserCheck.IsChecked == true) App.UserViewModel = new ViewModel.UserViewModel();
-            if(RoleCheck.IsChecked == true) App.RoleViewModel = new ViewModel.RoleViewModel();
-            if(CountryCheck.IsChecked == true) App.CountryViewModel = new ViewModel.CountryViewModel();
-            if(TourCheck.IsChecked == true) App.TourViewModel = new ViewModel.TourViewModel();
-            if(BookingCheck.IsChecked == true) App.BookingViewModel = new ViewModel.BookingViewModel();
+            NavigationService nav = NavigationService.GetNavigationService(this);
+            nav.Navigate(new Uri(@"View\PaymentView.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void ShowAuthorizationWindow_Click(object sender, RoutedEventArgs e)
@@ -79,6 +75,17 @@ namespace AccountingForTouristTrips.View
                 var user = window.User;
                 MessageBox.Show($"Success\nВы: {user.Client.FirstName} {user.Client.LastName}\n Роль: {user.Role.Name}");
             }
+        }
+
+        private void ReloadViewModelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(ClientCheck.IsChecked == true) App.ClientViewModel = new ViewModel.ClientViewModel();
+            if(UserCheck.IsChecked == true) App.UserViewModel = new ViewModel.UserViewModel();
+            if(RoleCheck.IsChecked == true) App.RoleViewModel = new ViewModel.RoleViewModel();
+            if(CountryCheck.IsChecked == true) App.CountryViewModel = new ViewModel.CountryViewModel();
+            if(TourCheck.IsChecked == true) App.TourViewModel = new ViewModel.TourViewModel();
+            if(BookingCheck.IsChecked == true) App.BookingViewModel = new ViewModel.BookingViewModel();
+            if(PaymentCheck.IsChecked == true) App.PaymentViewModel = new ViewModel.PaymentViewModel();
         }
     }
 }

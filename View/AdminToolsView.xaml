@@ -29,7 +29,7 @@
                 <Button x:Name="ShowCountryViewBtn" Margin="5" Content="Country View" Click="ShowCountryViewBtn_Click"/>
                 <Button x:Name="ShowTourViewBtn" Margin="5" Content="Tour View" Click="ShowTourViewBtn_Click"/>
                 <Button x:Name="ShowBookingViewBtn" Margin="5" Content="Booking View" Click="ShowBookingViewBtn_Click"/>
-                <Button x:Name="ShowPaymentViewBtn" Margin="5" Content="Payment View" IsEnabled="False"/>
+                <Button x:Name="ShowPaymentViewBtn" Margin="5" Content="Payment View" Click="ShowPaymentViewBtn_Click"/>
                 <Button x:Name="ShowAuthorizationWindow" Margin="5" Content="Authorization Window" Click="ShowAuthorizationWindow_Click"/>
             </StackPanel>
         </ScrollViewer>
@@ -42,6 +42,7 @@
                     <CheckBox x:Name="CountryCheck" Content="Country"/>
                     <CheckBox x:Name="TourCheck" Content="Tour"/>
                     <CheckBox x:Name="BookingCheck" Content="Booking"/>
+                    <CheckBox x:Name="PaymentCheck" Content="Payment"/>
                     <Button Margin="5" Content="Пересоздать" x:Name="ReloadViewModelBtn" Click="ReloadViewModelBtn_Click"/>
                 </StackPanel>
             </GroupBox>
