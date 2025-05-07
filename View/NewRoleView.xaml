@@ -1,11 +1,11 @@
-﻿<Window x:Class="AccountingForTouristTrips.View.NewCountryView"
+﻿<Window x:Class="AccountingForTouristTrips.View.NewRoleView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccountingForTouristTrips.View"
         mc:Ignorable="d"
-        Title="NewCountryView" Height="217" Width="276">
+        Title="New role" Height="217" Width="276">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="70*"/>

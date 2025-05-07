@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AccountingForTouristTrips.Model;
+using AccountingForTouristTrips.View;
+using AccountingForTouristTrips.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +16,14 @@ namespace AccountingForTouristTrips
     /// </summary>
     public partial class App : Application
     {
+        public static User LoginUser { get; set; }
+
+        public static RoleViewModel RoleViewModel = new RoleViewModel();
+        public static CountryViewModel CountryViewModel = new CountryViewModel();
+        public static ClientViewModel ClientViewModel = new ClientViewModel();
+        public static UserViewModel UserViewModel = new UserViewModel();
+        public static TourViewModel TourViewModel = new TourViewModel();
+        public static BookingViewModel BookingViewModel = new BookingViewModel();
+        public static PaymentViewModel PaymentViewModel = new PaymentViewModel();
     }
 }

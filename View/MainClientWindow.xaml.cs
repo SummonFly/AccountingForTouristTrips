@@ -23,11 +23,6 @@ namespace AccountingForTouristTrips.View
         public MainClientWindow()
         {
             InitializeComponent();
-            new NewBookingView().Show();
-            new NewClientView().Show();
-            new NewCountryView().Show();
-            new NewPaymentView().Show();
-            new NewTourView().Show();
         }
     }
 }

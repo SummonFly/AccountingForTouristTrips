@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace AccountingForTouristTrips.View
 {
     /// <summary>
-    /// Логика взаимодействия для NewClientView.xaml
+    /// Логика взаимодействия для NewUserView.xaml
     /// </summary>
-    public partial class NewClientView : Window
+    public partial class NewUserView : Window
     {
-        public NewClientView()
+        public NewUserView()
         {
             InitializeComponent();
         }

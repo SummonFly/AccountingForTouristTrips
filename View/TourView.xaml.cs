@@ -17,11 +17,12 @@ namespace AccountingForTouristTrips.View
     /// <summary>
     /// Логика взаимодействия для TourView.xaml
     /// </summary>
-    public partial class TourView : Window
+    public partial class TourView : Page
     {
         public TourView()
         {
             InitializeComponent();
+            DataContext = App.TourViewModel;
         }
     }
 }

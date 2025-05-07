@@ -10,23 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace AccountingForTouristTrips.View
 {
     /// <summary>
-    /// Логика взаимодействия для NewClientView.xaml
+    /// Логика взаимодействия для BookingView.xaml
     /// </summary>
-    public partial class NewClientView : Window
+    public partial class BookingView : Page
     {
-        public NewClientView()
+        public BookingView()
         {
             InitializeComponent();
-        }
-
-        private void SaveBtn_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = true;
+            DataContext = App.BookingViewModel;
         }
     }
 }
