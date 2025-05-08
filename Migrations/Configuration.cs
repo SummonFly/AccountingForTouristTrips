@@ -9,8 +9,7 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "AccountingForTouristTrips.TouristTripsModel";
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(AccountingForTouristTrips.TouristTripsModel context)
