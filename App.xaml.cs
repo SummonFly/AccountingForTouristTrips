@@ -31,20 +31,6 @@ namespace AccountingForTouristTrips
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
-            using(var context = new TouristTripsModel())
-            {
-                try
-                {
-                    context.Database.Initialize(false);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Инициализация не выполнена. Ошибка: " + ex.Message, "Error", 
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-
             RoleViewModel = new RoleViewModel();
             CountryViewModel = new CountryViewModel();
             ClientViewModel = new ClientViewModel();

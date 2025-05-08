@@ -99,9 +99,9 @@
     <Compile Include="Helper\PasswordToHashConverter.cs" />
     <Compile Include="Helper\RelayCommand.cs" />
     <Compile Include="Helper\UsersHelper.cs" />
-    <Compile Include="Migrations\202505060820260_AddUserAndRoleTables.cs" />
-    <Compile Include="Migrations\202505060820260_AddUserAndRoleTables.designer.cs">
-      <DependentUpon>202505060820260_AddUserAndRoleTables.cs</DependentUpon>
+    <Compile Include="Migrations\202505080915551_InitialCreate.cs" />
+    <Compile Include="Migrations\202505080915551_InitialCreate.designer.cs">
+      <DependentUpon>202505080915551_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Booking.cs" />
@@ -276,8 +276,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202505060820260_AddUserAndRoleTables.resx">
-      <DependentUpon>202505060820260_AddUserAndRoleTables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202505080915551_InitialCreate.resx">
+      <DependentUpon>202505080915551_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -305,6 +305,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
