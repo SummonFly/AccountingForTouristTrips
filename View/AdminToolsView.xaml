@@ -31,20 +31,23 @@
                 <Button x:Name="ShowBookingViewBtn" Margin="5" Content="Booking View" Click="ShowBookingViewBtn_Click"/>
                 <Button x:Name="ShowPaymentViewBtn" Margin="5" Content="Payment View" Click="ShowPaymentViewBtn_Click"/>
                 <Button x:Name="ShowAuthorizationWindow" Margin="5" Content="Authorization Window" Click="ShowAuthorizationWindow_Click"/>
+                <Button x:Name="SwitchToTestingPage" Margin="5" Content="Testing page" Click="SwitchToTestingPage_Click"/>
             </StackPanel>
         </ScrollViewer>
         <WrapPanel Grid.Column="2" Grid.Row="1">
             <GroupBox Header="Пересоздание ViewModel" Background="{DynamicResource BorderColor}">
-                <StackPanel>
-                    <CheckBox x:Name="ClientCheck" Content="Client"/>
-                    <CheckBox x:Name="UserCheck" Content="User"/>
-                    <CheckBox x:Name="RoleCheck" Content="Role"/>
-                    <CheckBox x:Name="CountryCheck" Content="Country"/>
-                    <CheckBox x:Name="TourCheck" Content="Tour"/>
-                    <CheckBox x:Name="BookingCheck" Content="Booking"/>
-                    <CheckBox x:Name="PaymentCheck" Content="Payment"/>
-                    <Button Margin="5" Content="Пересоздать" x:Name="ReloadViewModelBtn" Click="ReloadViewModelBtn_Click"/>
-                </StackPanel>
+                <Expander IsExpanded="True">
+                    <StackPanel>
+                        <CheckBox x:Name="ClientCheck" Content="Client"/>
+                        <CheckBox x:Name="UserCheck" Content="User"/>
+                        <CheckBox x:Name="RoleCheck" Content="Role"/>
+                        <CheckBox x:Name="CountryCheck" Content="Country"/>
+                        <CheckBox x:Name="TourCheck" Content="Tour"/>
+                        <CheckBox x:Name="BookingCheck" Content="Booking"/>
+                        <CheckBox x:Name="PaymentCheck" Content="Payment"/>
+                        <Button Margin="5" Content="Пересоздать" x:Name="ReloadViewModelBtn" Click="ReloadViewModelBtn_Click"/>
+                    </StackPanel>
+                </Expander>
             </GroupBox>
         </WrapPanel>
     </Grid>

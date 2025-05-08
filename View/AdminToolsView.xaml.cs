@@ -67,6 +67,12 @@ namespace AccountingForTouristTrips.View
             nav.Navigate(new Uri(@"View\PaymentView.xaml", UriKind.RelativeOrAbsolute));
         }
 
+        private void SwitchToTestingPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService nav = NavigationService.GetNavigationService(this);
+            nav.Navigate(new Uri(@"View\TestingPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
         private void ShowAuthorizationWindow_Click(object sender, RoutedEventArgs e)
         {
             var window = new AuthorizationWindow();
