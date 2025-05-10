@@ -23,6 +23,13 @@ namespace AccountingForTouristTrips.View
         {
             InitializeComponent();
             DataContext = App.TourViewModel;
+            if(App.LoginUser.Role.Name == "Клиент")
+            {
+                this.btnAdd.Visibility = Visibility.Hidden;
+                this.btnEdit.Visibility = Visibility.Hidden;
+                this.btnDelete.Visibility = Visibility.Hidden;
+                this.btnBook.Visibility = Visibility.Visible;
+            }
         }
     }
 }

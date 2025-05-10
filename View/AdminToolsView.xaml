@@ -5,50 +5,89 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AccountingForTouristTrips.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="520"
       Title="AdminToolsView">
 
     <Grid Background="{StaticResource LightGrayBg}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="60"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border Background="{StaticResource BorderColor}" Grid.ColumnSpan="3">
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Панель администратора" FontSize="24"/>
-        </Border>
-        <ScrollViewer Grid.ColumnSpan="2" Grid.Row="1">
-            <StackPanel>
-                <Button x:Name="ShowClientViewBtn" Margin="5" Content="Client View" Click="ShowClientViewBtn_Click"/>
-                <Button x:Name="ShowUserViewBtn" Margin="5" Content="User View" Click="ShowUserViewBtn_Click"/>
-                <Button x:Name="ShowRoleViewBtn" Margin="5" Content="Role View" Click="ShowRoleViewBtn_Click"/>
-                <Button x:Name="ShowCountryViewBtn" Margin="5" Content="Country View" Click="ShowCountryViewBtn_Click"/>
-                <Button x:Name="ShowTourViewBtn" Margin="5" Content="Tour View" Click="ShowTourViewBtn_Click"/>
-                <Button x:Name="ShowBookingViewBtn" Margin="5" Content="Booking View" Click="ShowBookingViewBtn_Click"/>
-                <Button x:Name="ShowPaymentViewBtn" Margin="5" Content="Payment View" Click="ShowPaymentViewBtn_Click"/>
-                <Button x:Name="ShowAuthorizationWindow" Margin="5" Content="Authorization Window" Click="ShowAuthorizationWindow_Click"/>
-                <Button x:Name="SwitchToTestingPage" Margin="5" Content="Testing page" Click="SwitchToTestingPage_Click"/>
+
+        <!-- Header -->
+        <Border Grid.ColumnSpan="3" Background="{StaticResource PrimaryColor}" Height="80">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Roaming Spirit" 
+                           FontSize="24" 
+                           FontWeight="Bold"
+                           Foreground="White"
+                           FontFamily="Castellar"
+                           Margin="0,0,10,0"/>
+                
             </StackPanel>
-        </ScrollViewer>
-        <WrapPanel Grid.Column="2" Grid.Row="1">
-            <GroupBox Header="Пересоздание ViewModel" Background="{DynamicResource BorderColor}">
-                <Expander IsExpanded="True">
+        </Border>
+
+
+        <Border Background="{StaticResource PrimaryDarkColor}" Grid.Row="1" Grid.ColumnSpan="3">
+            <TextBlock VerticalAlignment="Center" 
+                       HorizontalAlignment="Center" 
+                       Text="Панель администратора" 
+                       FontSize="20"
+                       Foreground="White"
+                       FontWeight="Bold"/>
+        </Border>
+
+
+        <Border Grid.Row="2" Grid.Column="0" Background="{StaticResource LightGrayBg}" BorderBrush="{StaticResource BorderColor}" BorderThickness="0,0,1,0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="Управление данными" 
+                               FontWeight="Bold" 
+                               FontSize="16"
+                               Margin="0,0,0,10"
+                               Foreground="{StaticResource PrimaryDarkColor}"/>
+
+                    <Button x:Name="ShowClientViewBtn" Content="Клиенты" Click="ShowClientViewBtn_Click" Style="{StaticResource {x:Type Button}}"/>
+                    <Button x:Name="ShowUserViewBtn" Content="Пользователи" Click="ShowUserViewBtn_Click" Style="{StaticResource {x:Type Button}}"/>
+                    <Button x:Name="ShowRoleViewBtn" Content="Роли" Click="ShowRoleViewBtn_Click" Style="{StaticResource {x:Type Button}}"/>
+                    <Button x:Name="ShowCountryViewBtn" Content="Страны" Click="ShowCountryViewBtn_Click" Style="{StaticResource {x:Type Button}}"/>
+                    <Button x:Name="ShowTourViewBtn" Content="Туры" Click="ShowTourViewBtn_Click" Style="{StaticResource {x:Type Button}}"/>
+                    <Button x:Name="ShowBookingViewBtn" Content="Бронирование" Click="ShowBookingViewBtn_Click" Style="{StaticResource {x:Type Button}}"/>
+                    <Button x:Name="ShowPaymentViewBtn" Content="Платеж" Click="ShowPaymentViewBtn_Click" Style="{StaticResource {x:Type Button}}"/>
+                    <Button x:Name="ShowAuthorizationWindow" Content="Авторизация" Click="ShowAuthorizationWindow_Click" Style="{StaticResource {x:Type Button}}"/>
+                    <Button x:Name="SwitchToTestingPage" Content="Тестовая страница" Click="SwitchToTestingPage_Click" Style="{StaticResource {x:Type Button}}"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+
+        <Border Grid.Row="2" Grid.Column="1" Background="{StaticResource LightGrayBg}" BorderBrush="{StaticResource BorderColor}" BorderThickness="0,0,1,0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="10">
+                <Border Background="{StaticResource BorderColor}" CornerRadius="4" Padding="10">
                     <StackPanel>
-                        <CheckBox x:Name="ClientCheck" Content="Client"/>
-                        <CheckBox x:Name="UserCheck" Content="User"/>
-                        <CheckBox x:Name="RoleCheck" Content="Role"/>
-                        <CheckBox x:Name="CountryCheck" Content="Country"/>
-                        <CheckBox x:Name="TourCheck" Content="Tour"/>
-                        <CheckBox x:Name="BookingCheck" Content="Booking"/>
-                        <CheckBox x:Name="PaymentCheck" Content="Payment"/>
-                        <Button Margin="5" Content="Пересоздать" x:Name="ReloadViewModelBtn" Click="ReloadViewModelBtn_Click"/>
+                        <TextBlock Text="Пересоздание ViewModel" 
+                                   FontWeight="Bold" 
+                                   HorizontalAlignment="Center"
+                                   Margin="0,0,0,10"/>
+                        <CheckBox x:Name="ClientCheck" Content="Client" Margin="5"/>
+                        <CheckBox x:Name="UserCheck" Content="User" Margin="5"/>
+                        <CheckBox x:Name="RoleCheck" Content="Role" Margin="5"/>
+                        <CheckBox x:Name="CountryCheck" Content="Country" Margin="5"/>
+                        <CheckBox x:Name="TourCheck" Content="Tour" Margin="5"/>
+                        <CheckBox x:Name="BookingCheck" Content="Booking" Margin="5"/>
+                        <CheckBox x:Name="PaymentCheck" Content="Payment" Margin="5"/>
+                        <Button Margin="0,10,0,0" Content="Пересоздать" x:Name="ReloadViewModelBtn" Click="ReloadViewModelBtn_Click" Style="{StaticResource {x:Type Button}}"/>
                     </StackPanel>
-                </Expander>
-            </GroupBox>
-        </WrapPanel>
+                </Border>
+            </ScrollViewer>
+        </Border>
+
+       
     </Grid>
 </Page>

@@ -12,30 +12,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using AccountingForTouristTrips.Model;
 
 namespace AccountingForTouristTrips.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainClientWindow.xaml
+    /// Логика взаимодействия для AccountantToolView.xaml
     /// </summary>
-    public partial class MainClientWindow : Page
+    public partial class AccountantToolView : Page
     {
-        public MainClientWindow()
+        public AccountantToolView()
         {
             InitializeComponent();
         }
 
-        private void ViewToursButton_Click(object sender, RoutedEventArgs e)
+        private void ShowBookingViewBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri(@"View\TourView.xaml", UriKind.RelativeOrAbsolute));
+            nav.Navigate(new Uri(@"View\BookingView.xaml", UriKind.RelativeOrAbsolute));
         }
 
-        private void MyToursButton_Click(object sender, RoutedEventArgs e)
+        private void ShowPaymentViewBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri(@"View\MyTourList.xaml", UriKind.RelativeOrAbsolute));
+            nav.Navigate(new Uri(@"View\PaymentView.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

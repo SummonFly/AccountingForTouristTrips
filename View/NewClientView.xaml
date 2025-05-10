@@ -5,43 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccountingForTouristTrips.View"
         mc:Ignorable="d"
-        Title="New client" Height="500" Width="450">
-    <Grid>
+        Title="New client" Height="530" Width="450">
+    <Grid Margin="20">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="9*"/>
-            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Id" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="6,0,0,0" Grid.Column="0" Height="16"/>
-        <TextBox Text="{Binding Id}" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
 
-        <TextBlock Text="First Name" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16"/>
-        <TextBox Text="{Binding FirstName}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="200"/>
+        <TextBlock Text="Клиент" Grid.ColumnSpan="2" 
+                FontSize="18" FontWeight="SemiBold"
+                Margin="0,0,0,20" HorizontalAlignment="Center"
+                Foreground="{StaticResource PrimaryColor}"/>
 
-        <TextBlock Text="Last Name" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" Height="16"/>
-        <TextBox Text="{Binding LastName}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="200"/>
 
-        <TextBlock Text="Email" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" Height="16"/>
-        <TextBox Text="{Binding Email}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="200"/>
+        <Label Content="ID:" Grid.Row="1" VerticalAlignment="Center" Style="{StaticResource {x:Type Label}}"/>
+        <TextBox Text="{Binding Id}" IsEnabled="False" Grid.Column="1" Grid.Row="1" 
+              Style="{StaticResource {x:Type TextBox}}" Width="60"/>
 
-        <TextBlock Text="Phone" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" Height="16"/>
-        <TextBox Text="{Binding Phone}" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="200"/>
 
-        <TextBlock Text="Date of Birth" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" Height="16"/>
-        <DatePicker Text="{Binding DateOfBirth}" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
+        <Label Content="Имя:" Grid.Row="2" VerticalAlignment="Center" Style="{StaticResource {x:Type Label}}"/>
+        <TextBox Text="{Binding FirstName}" Grid.Column="1" Grid.Row="2" 
+              Style="{StaticResource {x:Type TextBox}}"/>
 
-        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="1" Margin="45,62,0,0" Grid.RowSpan="2">
-            <Button x:Name="SaveBtn" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Click="SaveBtn_Click"/>
-            <Button x:Name="CancelBtn" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="10" IsCancel="True"/>
+
+        <Label Content="Фамилия:" Grid.Row="3" VerticalAlignment="Center" Style="{StaticResource {x:Type Label}}"/>
+        <TextBox Text="{Binding LastName}" Grid.Column="1" Grid.Row="3" 
+              Style="{StaticResource {x:Type TextBox}}"/>
+
+
+        <Label Content="Email:" Grid.Row="4" VerticalAlignment="Center" Style="{StaticResource {x:Type Label}}"/>
+        <TextBox Text="{Binding Email}" Grid.Column="1" Grid.Row="4" 
+              Style="{StaticResource {x:Type TextBox}}"/>
+
+
+        <Label Content="Телефон:" Grid.Row="5" VerticalAlignment="Center" Style="{StaticResource {x:Type Label}}"/>
+        <TextBox Text="{Binding Phone}" Grid.Column="1" Grid.Row="5" 
+              Style="{StaticResource {x:Type TextBox}}"/>
+
+
+        <Label Content="Дата рождения:" Grid.Row="6" VerticalAlignment="Center"  Style="{StaticResource {x:Type Label}}"/>
+        <DatePicker SelectedDate="{Binding DateOfBirth}" Grid.Column="1" Grid.Row="6" 
+                 Style="{StaticResource {x:Type DatePicker}}" Width="140" HorizontalAlignment="Center"/>
+
+
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="7" Orientation="Horizontal" 
+                 HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button x:Name="CancelBtn" Content="Отмена" Width="120" Margin="0,0,10,0" IsCancel="True"
+                 Style="{StaticResource {x:Type Button}}" 
+                 Background="{StaticResource LightGrayBg}" 
+                 Foreground="{StaticResource TextDark}"/>
+            <Button x:Name="SaveBtn" Content="Сохранить" Width="120" Margin="0,0,10,0" Click="SaveBtn_Click"
+                 Style="{StaticResource {x:Type Button}}"/>
         </StackPanel>
     </Grid>
 </Window>

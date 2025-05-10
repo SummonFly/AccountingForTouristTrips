@@ -31,12 +31,29 @@ namespace AccountingForTouristTrips.ViewModel
         private Booking _selectedBooking;
 
         public ObservableCollection<Booking> ListBookings { get; set; } = new ObservableCollection<Booking>();
+        public ObservableCollection<Booking> MyListBookings { get; set; } = new ObservableCollection<Booking>();
 
         public BookingViewModel()
         {
             ListBookings = new ObservableCollection<Booking>();
             ListBookings = GetBookings();
         }
+
+        public ObservableCollection<Booking> GetbookingForCurrentClient()
+        {
+            if(App.LoginUser.Client != null)
+            {
+                foreach(var book in ListBookings)
+                {
+                    if(book.Client.Id == App.LoginUser.Client.Id)
+                    {
+                        MyListBookings.Add(book);
+                    }
+                }
+            }
+            return null;
+        }
+
         private ObservableCollection<Booking> GetBookings()
         {
             using (var context = new TouristTripsModel())
@@ -201,6 +218,9 @@ namespace AccountingForTouristTrips.ViewModel
                                     context.Bookings.Remove(delBooking);
                                     context.SaveChanges();
                                     ListBookings.Remove(booking);
+                                    MyListBookings.Remove(booking);
+                                    ListBookings = GetBookings();
+                                    
                                 }
                                 catch (Exception ex)
                                 {
@@ -210,6 +230,96 @@ namespace AccountingForTouristTrips.ViewModel
                         }
                     }
                 }, (obj) => SelectedBooking != null && ListBookings.Count > 0));
+            }
+        }
+        #endregion
+        #region Cancel 
+        private RelayCommand _cancel;
+        public RelayCommand Cancel
+        {
+            get
+            {
+                return _cancel ??
+                (_cancel = new RelayCommand(obj =>
+                {
+                    Booking editBooking = SelectedBooking;
+                    MessageBoxResult result = MessageBox.Show("Отменить бронь?",
+                                "Предупреждение", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+                    if (result == MessageBoxResult.OK)
+                    {
+                        using (var context = new TouristTripsModel())
+                        {
+                            Booking booking = context.Bookings.Find(editBooking.Id);
+                            if (booking.Statys != BookingStatys.Canceled)
+                                booking.Statys = BookingStatys.Canceled;
+                            try
+                            {
+                                context.SaveChanges();
+                                ListBookings.Clear();
+                                ListBookings = GetBookings();
+                                MyListBookings.Clear();
+                                GetbookingForCurrentClient();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("\nОшибка редактирования данных!\n" + ex.Message, "Предупреждение");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        ListBookings.Clear();
+                        ListBookings = GetBookings();
+                    }
+                }, (obj) => SelectedBooking != null && ListBookings.Count > 0));
+            }
+        }
+        #endregion
+        #region command Pay
+        private RelayCommand _pay;
+        public RelayCommand Pay
+        {
+            get
+            {
+                return _pay ??
+                (_pay = new RelayCommand(obj =>
+                {
+                    Payment newPayment = new Payment() 
+                    {
+                        Id = MaxId() + 1, 
+                        PaymentDate = DateTime.Now
+                    };
+                    NewPaymentView nvPayment = new NewPaymentView
+                    {
+                        Title = "Новая операция",
+                        DataContext = newPayment,
+                    };
+                    nvPayment.cbBooking.IsEnabled = false;
+
+                    nvPayment.ShowDialog();
+                    if (nvPayment.DialogResult == true)
+                    {
+                        using (var context = new TouristTripsModel())
+                        {
+                            try
+                            {
+                                var existingBooking = context.Bookings.Find(SelectedBooking.Id);
+                                newPayment.Booking = existingBooking;
+
+                                context.Payments.Add(newPayment);
+                                context.SaveChanges();
+                                ListBookings.Clear();
+                                ListBookings = GetBookings();
+                                MyListBookings.Clear();
+                                GetbookingForCurrentClient();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("\nОшибка!\n" + ex.Message, "Предупреждение");
+                            }
+                        }
+                    }
+                }, (obj) => true));
             }
         }
         #endregion
