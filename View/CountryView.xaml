@@ -8,22 +8,77 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CountryView">
 
-    <StackPanel Background="{StaticResource LightGrayBg}">
-        <StackPanel Orientation="Horizontal" Background="{StaticResource LightGrayBg}">
-            <Button x:Name="btnAdd" Margin="10,10,5,10" Content="Добавить" Command="{Binding Add}"/>
-            <Button x:Name="btnEdit" Margin="10,10,5,10" Content="Редактировать" Command="{Binding Edit}"/>
-            <Button x:Name="btnDelete" Margin="10,10,5,10" Content="Удалить" Command="{Binding Delete}"/>
-        </StackPanel>
-        <Label Margin="5" HorizontalAlignment="Center">Список стран</Label>
-        <ListView x:Name="lvCountry" ItemsSource="{Binding ListCountry}" SelectedItem="{Binding SelectedCountry}" Background="#FFD3CDCD">
-            <ListView.View>
-                <GridView>
-                    <GridView.Columns>
-                        <GridViewColumn Header="Код" Width="50" DisplayMemberBinding="{Binding Id}"/>
-                        <GridViewColumn Header="Наименование страны" DisplayMemberBinding="{Binding Name}"/>
-                    </GridView.Columns>
-                </GridView>
-            </ListView.View>
-        </ListView>
-    </StackPanel>
+    <Grid Background="{StaticResource LightGrayBg}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{StaticResource PrimaryDarkColor}" Padding="10" CornerRadius="4">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="btnAdd" Margin="5" Content="Добавить" Command="{Binding Add}" 
+                        Style="{StaticResource {x:Type Button}}" Width="120"/>
+                <Button x:Name="btnEdit" Margin="5" Content="Редактировать" Command="{Binding Edit}" 
+                        Style="{StaticResource {x:Type Button}}" Width="120"/>
+                <Button x:Name="btnDelete" Margin="5" Content="Удалить" Command="{Binding Delete}" 
+                        Style="{StaticResource {x:Type Button}}" Width="120"/>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Grid.Row="1" Text="Список стран" 
+                   HorizontalAlignment="Center" 
+                   FontSize="18" 
+                   FontWeight="Bold"
+                   Margin="0,15,0,15"
+                   Foreground="{StaticResource PrimaryDarkColor}"/>
+
+        <Border Grid.Row="2" Margin="10,0,10,10" CornerRadius="4">
+            <ListView x:Name="lvCountry" 
+                      ItemsSource="{Binding ListCountry}" 
+                      SelectedItem="{Binding SelectedCountry}" 
+                      Background="White"
+                      BorderBrush="{StaticResource BorderColor}"
+                      BorderThickness="1">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Код" Width="80" DisplayMemberBinding="{Binding Id}">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" 
+                                               FontWeight="Bold"
+                                               Foreground="{StaticResource PrimaryDarkColor}"/>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Наименование страны" DisplayMemberBinding="{Binding Name}" Width="300">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" 
+                                               FontWeight="Bold"
+                                               Foreground="{StaticResource PrimaryDarkColor}"/>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Padding" Value="8"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource LightGrayBg}"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="{StaticResource PrimaryColor}"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </Border>
+    </Grid>
 </Page>

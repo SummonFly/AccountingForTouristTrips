@@ -36,6 +36,7 @@ namespace AccountingForTouristTrips.ViewModel
         {
             ListTour = new ObservableCollection<Tour>();
             ListTour = GetTours();
+           
         }
         private ObservableCollection<Tour> GetTours()
         {
@@ -217,5 +218,62 @@ namespace AccountingForTouristTrips.ViewModel
             }
         }
         #endregion
+        #region Book 
+        private RelayCommand _book;
+        public RelayCommand Book
+        {
+            get
+            {
+                return _book ??
+                (_book = new RelayCommand(obj =>
+                {
+                    Booking newBooking = new Booking() 
+                    { 
+                        Id = MaxId() + 1, 
+                        BookingDate = DateTime.Now 
+                    };
+                    NewBookingView nvBooking = new NewBookingView
+                    {
+                        Title = "Новая бронь",
+                        DataContext = newBooking,
+                    };
+                    
+                    nvBooking.cbClient.IsEnabled = false;
+                    nvBooking.cbTour.IsEnabled = false;
+
+                    //nvBooking.cbTour.SelectedItem = SelectedTour;
+                    //nvBooking.cbClient.ItemsSource = App.ClientViewModel.ListClient;
+
+
+                    nvBooking.ShowDialog();
+                    if (nvBooking.DialogResult == true)
+                    {
+                        using (var context = new TouristTripsModel())
+                        {
+                            try
+                            {
+                                var existingTour = context.Tours.Find(SelectedTour.Id);
+                                newBooking.Tour = existingTour;
+
+                                var existingClient = context.Clients.Find(App.LoginUser.Client.Id);
+                                newBooking.Client = existingClient;
+
+                                context.Bookings.Add(newBooking);
+                                context.SaveChanges();
+                                App.BookingViewModel = new BookingViewModel();
+                                //ListBookings.Clear();
+                                //ListBookings = GetBookings();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("\nОшибка добавления данных!\n" + ex.Message, "Предупреждение");
+                            }
+                        }
+                    }
+                }, (obj) => SelectedTour != null && ListTour.Count > 0));
+            }
+        }
+        #endregion
+
     }
 }

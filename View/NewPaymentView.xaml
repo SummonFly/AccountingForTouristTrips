@@ -5,47 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccountingForTouristTrips.View"
         mc:Ignorable="d"
-        Title="New payment" Height="342" Width="322">
-    <Grid>
+        Title="New payment" Height="380" Width="340">
+    <Grid Margin="20">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Id" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-        <TextBox Text="{Binding Id}" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="40"/>
 
-        <TextBlock Text="Booking" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-        <ComboBox x:Name="cbBooking" SelectedItem="{Binding Booking}" SelectedValue="{Binding BookingId}" SelectedValuePath="Id" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100">
+        <TextBlock Text="Платежи" Grid.ColumnSpan="2"
+                   FontSize="18" FontWeight="SemiBold"
+                   Margin="0,0,0,20" HorizontalAlignment="Center"
+                   Foreground="{StaticResource PrimaryColor}"/>
+
+
+        <Label Content="ID:" Grid.Row="1" VerticalAlignment="Center" Style="{StaticResource {x:Type Label}}"/>
+        <TextBox Text="{Binding Id}" IsEnabled="False" Grid.Column="1" Grid.Row="1"
+                 Style="{StaticResource {x:Type TextBox}}" Width="60"/>
+
+
+        <Label Content="Бронирование:" Grid.Row="2" VerticalAlignment="Center" Style="{StaticResource {x:Type Label}}"/>
+        <ComboBox x:Name="cbBooking" SelectedItem="{Binding Booking}" 
+                  SelectedValue="{Binding BookingId}" SelectedValuePath="Id" 
+                  Grid.Column="1" Grid.Row="2" Style="{StaticResource {x:Type ComboBox}}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Tour.Name}"/>
-                        <Separator Margin="10,0,10,0"/>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="{Binding Tour.Name}" FontWeight="SemiBold" Width="120" TextTrimming="CharacterEllipsis"/>
+                        <TextBlock Text=" - " Margin="5,0"/>
                         <TextBlock Text="{Binding Client.FirstName}"/>
-                        <Separator Margin="10,0,10,0"/>
+                        <TextBlock Text=" " />
                         <TextBlock Text="{Binding Client.LastName}"/>
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <TextBlock Text="Amount" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-        <TextBox Text="{Binding Amount}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>
 
-        <TextBlock Text="Payment Date" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-        <DatePicker Text="{Binding PaymentDate}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Width="100"/>
+        <Label Content="Сумма:" Grid.Row="3" VerticalAlignment="Center" Style="{StaticResource {x:Type Label}}"/>
+        <TextBox Text="{Binding Amount}" Grid.Column="1" Grid.Row="3"
+                 Style="{StaticResource {x:Type TextBox}}" Width="120"/>
 
-        <StackPanel Grid.ColumnSpan="2" Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="SaveBtn" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Click="SaveBtn_Click"/>
-            <Button x:Name="CancelBtn" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="10" IsCancel="True"/>
+
+        <Label Content="Дата платежа:" Grid.Row="4" VerticalAlignment="Center" Style="{StaticResource {x:Type Label}}"/>
+        <DatePicker SelectedDate="{Binding PaymentDate}" Grid.Column="1" Grid.Row="4"
+                    Style="{StaticResource {x:Type DatePicker}}" Width="120" HorizontalAlignment="Left"/>
+
+
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="5" Orientation="Horizontal"
+                    HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button x:Name="CancelBtn" Content="Отмена" Width="120" Margin="0,0,10,0" IsCancel="True"
+                    Style="{StaticResource {x:Type Button}}"
+                    Background="{StaticResource LightGrayBg}"
+                    Foreground="{StaticResource TextDark}"/>
+            <Button x:Name="SaveBtn" Content="Сохранить" Width="120" Margin="0,0,10,0" Click="SaveBtn_Click"
+                    Style="{StaticResource {x:Type Button}}"/>
         </StackPanel>
     </Grid>
 </Window>
