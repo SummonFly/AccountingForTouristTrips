@@ -26,12 +26,24 @@ namespace AccountingForTouristTrips
         public MainWindow()
         {
             InitializeComponent();
-            //Login();
-
-            //MainFrame.Navigate(new MainClientWindow());
-            
+            Login();
             MainFrame.Navigate(new AdminToolsView());
+            switch (App.LoginUser.Role.Name)
+            {
+                case "Администратор":
+                    MainFrame.Navigate(new AdminToolsView());
+                    break;
+                case "Бухгалтер":
+                    MainFrame.Navigate(new AccountantToolView());
+                    break;
+                case "Менеджер":
+                    MainFrame.Navigate(new ManagerToolView());
+                    break;
+                default:
+                    MainFrame.Navigate(new MainClientWindow());
+                    break;
 
+            }
         }
 
         public void Login()

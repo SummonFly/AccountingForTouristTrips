@@ -6,7 +6,85 @@
         xmlns:local="clr-namespace:AccountingForTouristTrips.View"
         mc:Ignorable="d"
         Height="450" Width="800" Background="Black" Title="Client">
-    <Grid Background="White">
-        
+    <Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#4758ff" Offset="0"/>
+                <GradientStop Color="#47b3ff" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <Border Width="380" 
+     Height="450"  
+     Background="White" 
+     CornerRadius="12" 
+     BorderThickness="0"
+     Padding="0"
+     VerticalAlignment="Center"
+     HorizontalAlignment="Center">
+
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="0" Color="#20000000"/>
+            </Border.Effect>
+
+            <StackPanel>
+
+                <Border Background="#FF4285F4" 
+             CornerRadius="12,12,0,0" 
+             Padding="20,15">
+                    <StackPanel Orientation="Horizontal" 
+                   HorizontalAlignment="Center">
+
+                        <TextBlock Text="ROAMING SPIRIT" 
+                        FontSize="20" 
+                        FontWeight="Bold"
+                        Foreground="White"
+                        VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+
+
+                <StackPanel Margin="30,20,30,0">
+
+                    <StackPanel HorizontalAlignment="Center" Margin="0,0,0,20">
+                        <Ellipse Width="80" Height="80" Margin="0,0,0,15">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="https://cdn-icons-png.flaticon.com/512/1470/1470712.png" 
+                                Stretch="UniformToFill"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+
+                        <TextBlock Text="Добро пожаловать!" 
+                        FontSize="20" 
+                        FontWeight="SemiBold"
+                        HorizontalAlignment="Center"/>
+
+                        <TextBlock Text="Выберите действие:" 
+                        FontSize="14"
+                        Foreground="#FF757575"
+                        Margin="0,5,0,0"
+                        HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+
+                    <StackPanel>
+                        <Button x:Name="ViewToursButton" 
+                     Content="ПОСМОТРЕТЬ ТУРЫ" 
+                     Margin="0,0,0,15"
+                     Height="50"
+                     Style="{StaticResource ModernButtonStyle}" Click="ViewToursButton_Click"/>
+
+                        <Button x:Name="MyToursButton" 
+                     Content="МОИ ТУРЫ" 
+                     Height="50"
+                     Margin="0,0,0,15"
+                     Style="{StaticResource ModernButtonStyle}" Click="MyToursButton_Click"/>
+
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>
